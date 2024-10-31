@@ -20,6 +20,7 @@ public class LogimActivity extends AppCompatActivity {
     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     startActivity(intent);
     finish();
-
+    // c comment
+        // Another comment
     }
 }
