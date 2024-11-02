@@ -22,5 +22,6 @@ public class LogimActivity extends AppCompatActivity {
     finish();
     // c comment
         // Another comment
+        // trong dan thoi
     }
 }
