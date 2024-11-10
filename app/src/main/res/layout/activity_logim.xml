@@ -29,7 +29,7 @@
         android:layout_marginRight="35dp"
         android:background="@drawable/custom_edittex"
         android:hint="nhập số điện thoại hoặc email"
-        android:textColor="#000000"/>
+        android:textColor="#FFFFFF"/>
 
     <EditText
         android:id="@+id/edt_pass"
@@ -70,6 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sign_up"
+        android:textColor="#F4F1F1"
         android:background="@drawable/custom_signup"
         android:padding="10dp"
         android:layout_marginTop="250dp"/>
