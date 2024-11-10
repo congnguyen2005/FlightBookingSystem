@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Đặt màu nền cho hình -->
+    <solid android:color="#2196F3"/>
+
+    <!-- Viền bên ngoài của hình -->
+    <stroke android:width="1dp" android:color="@color/black"/>
+
+    <!-- Thiết lập padding -->
+    <padding
+        android:bottom="10dp"
+        android:top="10dp"
+        android:left="10dp"
+        android:right="10dp"/>
+
+    <!-- Viền bên trong (hoặc viền thứ hai) -->
+    <stroke
+        android:color="@color/black"
+        android:width="3dp" />
+
+    <!-- Độ bo góc cho các góc của hình -->
+    <corners android:radius="50dp"/>
+
+</shape>

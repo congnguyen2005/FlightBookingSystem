@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">FlightBookingSystem</string>
+    <string name="app_name">assigment</string>
+    <string name="forgot_password1"><u>Bạn quên mật khẩu?</u></string>
+    <string name="sign_up">Bạn chưa có tài khoản?<b>Đăng ký</b></string>
+    <string name="edit"><u>Chỉnh sửa</u></string>
+    <string name="del"><u>Xóa</u></string>
+    <string name="forgot_password2"><u>Bạn đã có tài khoản?<b>Đăng nhập</b></u></string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
