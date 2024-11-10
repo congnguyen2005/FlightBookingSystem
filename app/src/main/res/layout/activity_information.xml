@@ -84,7 +84,7 @@
                     android:id="@+id/etAge"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Age"
+                    android:hint="Aged"
                     android:background="@drawable/custom_edittex"
                     android:padding="10dp" />
             </LinearLayout>
