@@ -19,40 +19,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tìm kiếm chuyến bay"
+            android:text="Tìm kiếm chuyến bay - Khứ hồi"
             android:textSize="24sp"
             android:textColor="#000000"
-            android:layout_gravity="center"
-            android:paddingBottom="16dp"/>
-
-        <!-- Dòng chọn "Quá khứ" và "Khứ hồi" -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Quá khứ"
-                android:gravity="start" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Khứ hồi"
-                android:gravity="end" />
-        </LinearLayout>
+            android:layout_gravity="center"/>
 
         <!-- Điểm đi -->
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Điểm đi"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:padding="8dp"/>
 
         <!-- Điểm đến -->
@@ -68,8 +45,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Ngày đi"
-            android:layout_marginTop="8dp"
-            android:padding="8dp"/>
+            android:padding="8dp"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Ngày về -->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ngày về"
+            android:padding="8dp"
+            android:layout_marginTop="8dp"/>
 
         <!-- Số người -->
         <EditText
@@ -94,6 +79,6 @@
             android:text="Tìm kiếm"
             android:layout_marginTop="16dp"
             android:backgroundTint="#7E57C2"
-            android:textColor="#FFFFFF"
-            android:layout_marginBottom="16dp"/>
-    </LinearLayout></androidx.cardview.widget.CardView>
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
