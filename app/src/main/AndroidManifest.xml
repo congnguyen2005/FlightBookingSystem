@@ -15,9 +15,7 @@
         <activity
             android:name=".Information"
             android:exported="false" />
-        <activity
-            android:name=".information"
-            android:exported="false" />
+
         <activity
             android:name=".SearchFlights"
             android:exported="false" />
@@ -36,7 +34,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CustomerInfoActivity" />
     </application>
 
 </manifest>
