@@ -2,16 +2,17 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
     card_view:cardCornerRadius="20dp"
     card_view:cardElevation="8dp"
-    card_view:cardBackgroundColor="#B3E5FC">
+    card_view:cardBackgroundColor="#FFFFFF">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -23,77 +24,134 @@
             android:textSize="24sp"
             android:textColor="#000000"
             android:layout_gravity="center"
-            android:paddingBottom="16dp"/>
+            android:paddingBottom="16dp"
+            android:textStyle="bold"/>
 
-        <!-- Dòng chọn "Quá khứ" và "Khứ hồi" -->
-        <LinearLayout
+        <RadioGroup
+            android:id="@+id/radio_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
 
-            <TextView
+            <RadioButton
+                android:id="@+id/radio_one_way"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Quá khứ"
-                android:gravity="start" />
+                android:gravity="center"
+                android:textColor="#7E57C2"
+                android:button="@null"
+            android:background="@drawable/custom_radio_button_background"
+            android:padding="12dp" />
 
-            <TextView
+            <RadioButton
+                android:id="@+id/radio_round_trip"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Khứ hồi"
-                android:gravity="end" />
-        </LinearLayout>
+                android:gravity="center"
+                android:textColor="#7E57C2"
+                android:button="@null"
+            android:background="@drawable/custom_radio_button_background"
+            android:padding="12dp" />
+        </RadioGroup>
 
         <!-- Điểm đi -->
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Điểm đi"
             android:layout_marginTop="8dp"
-            android:padding="8dp"/>
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Điểm đi"
+                android:padding="12dp"
+                android:drawableStart="@drawable/ic_departure" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Điểm đến -->
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Điểm đến"
             android:layout_marginTop="8dp"
-            android:padding="8dp"/>
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Điểm đến"
+                android:padding="12dp"
+                android:drawableStart="@drawable/ic_arrival" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Ngày đi -->
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ngày đi"
             android:layout_marginTop="8dp"
-            android:padding="8dp"/>
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ngày đi"
+                android:padding="12dp"
+                android:focusable="false"
+                android:clickable="true"
+                android:onClick="showDatePicker"
+                android:drawableStart="@drawable/icons8_calendar_24" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Số người -->
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Số người"
             android:layout_marginTop="8dp"
-            android:padding="8dp"/>
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true">
 
-        <!-- Loại vé -->
-        <EditText
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Số người"
+                android:padding="12dp"
+                android:inputType="number"
+                android:drawableStart="@drawable/people_group" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Loại vé"
             android:layout_marginTop="8dp"
-            android:padding="8dp"/>
+            app:hintEnabled="true"
+            app:hintAnimationEnabled="true">
 
-        <!-- Nút Tìm kiếm -->
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Loại vé"
+                android:padding="12dp"
+                android:inputType="number"
+                android:drawableStart="@drawable/ticket" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!-- Nút tìm kiếm -->
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tìm kiếm"
             android:layout_marginTop="16dp"
-            android:backgroundTint="#7E57C2"
-            android:textColor="#FFFFFF"
-            android:layout_marginBottom="16dp"/>
-    </LinearLayout></androidx.cardview.widget.CardView>
+            android:background="@drawable/button_background"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:elevation="4dp"
+            android:backgroundTint="@color/pressed_color" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
