@@ -45,7 +45,7 @@
             <ImageView
                 android:layout_width="90dp"
                 android:layout_height="90dp"
-                android:src="@drawable/trong"
+                android:src="@drawable/anh"
                 android:background="@drawable/khung_logo"
                 android:scaleType="centerCrop"
                 android:layout_gravity="center"
