@@ -16,17 +16,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        EditText edtPassword = findViewById(R.id.edt_Repass);
-        ImageView eyeIcon = findViewById(R.id.eye);  // Giả sử bạn đã thêm eye icon vào layout
 
-        eyeIcon.setOnClickListener(v -> {
-            if (edtPassword.getInputType() == InputType.TYPE_TEXT_VARIATION_PASSWORD) {
-                edtPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);  // Hiển thị mật khẩu
-            } else {
-                edtPassword.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);  // Ẩn mật khẩu
-            }
-            edtPassword.setSelection(edtPassword.getText().length());  // Đặt lại con trỏ sau khi thay đổi inputType
-        });
 
     }
 }
