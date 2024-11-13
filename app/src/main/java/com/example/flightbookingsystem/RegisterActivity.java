@@ -1,6 +1,8 @@
 package com.example.flightbookingsystem;
 
 import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,12 +15,18 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        EditText edtPassword = findViewById(R.id.edt_Repass);
+        ImageView eyeIcon = findViewById(R.id.eye);  // Giả sử bạn đã thêm eye icon vào layout
+
+        eyeIcon.setOnClickListener(v -> {
+            if (edtPassword.getInputType() == InputType.TYPE_TEXT_VARIATION_PASSWORD) {
+                edtPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);  // Hiển thị mật khẩu
+            } else {
+                edtPassword.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);  // Ẩn mật khẩu
+            }
+            edtPassword.setSelection(edtPassword.getText().length());  // Đặt lại con trỏ sau khi thay đổi inputType
         });
+
     }
 }

@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="8dp"
+    android:layout_marginBottom="8dp"
     android:background="@drawable/custom_radio_button_background"
-    android:layout_marginBottom="8dp">
+    android:orientation="horizontal"
+    android:padding="8dp">
 
     <ImageView
         android:id="@+id/imgFlight"
@@ -25,33 +25,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hà Nội - Đà Nẵng"
+            android:textColor="@android:color/black"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Time: mm/dd/yyyy"
-            android:textSize="14sp"
-            android:textColor="@android:color/darker_gray" />
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tvPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Price: xxxxxx VND"
-            android:textSize="14sp"
-            android:textColor="@android:color/holo_red_dark" />
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="14sp" />
     </LinearLayout>
 
     <Button
         android:id="@+id/btnDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chi tiết"
-        android:textSize="12sp"
         android:backgroundTint="@android:color/holo_blue_light"
-        android:textColor="@android:color/white" />
+        android:text="Chi tiết"
+        android:textColor="@android:color/white"
+        android:textSize="12sp" />
 </LinearLayout>

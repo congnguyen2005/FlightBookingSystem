@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:background="@drawable/backgroud"
-    tools:context=".LogimActivity"
-    android:padding="16dp">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".LogimActivity">
 
     <ImageView
         android:id="@+id/circularImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/backgroud"
-        android:background="@drawable/khung_logo"
-        android:scaleType="centerCrop"
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"
-        android:clipToOutline="true"/>
+        android:background="@drawable/khung_logo"
+        android:clipToOutline="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/backgroud" />
 
     <EditText
         android:id="@+id/edt_user"
@@ -29,9 +29,9 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/custom_edittex"
         android:hint="Nhập số điện thoại hoặc email"
-        android:textColor="#FFFFFF"
         android:padding="12dp"
-        android:textSize="16sp"/>
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/edt_pass"
@@ -40,16 +40,16 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/custom_edittex"
         android:hint="Nhập mật khẩu"
-        android:textColor="#FFFFFF"
         android:padding="12dp"
-        android:textSize="16sp"/>
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:text="Ghi nhớ mật khẩu"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="20dp"/>
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/btn_login"
@@ -57,33 +57,33 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@drawable/custom_btn"
-        app:backgroundTint="@null"
+        android:padding="12dp"
         android:text="Đăng nhập"
+        android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textAllCaps="false"
-        android:padding="12dp"/>
+        app:backgroundTint="@null" />
 
     <TextView
         android:id="@+id/txtForgot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/forgot_password1"
-        android:textColor="#FFFFFF"
+        android:layout_marginTop="10dp"
         android:padding="5dp"
-        android:layout_marginTop="10dp"/>
+        android:text="@string/forgot_password1"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/txtSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:background="@drawable/custom_signup"
         android:padding="10dp"
         android:text="@string/sign_up"
         android:textColor="#F4F1F1"
-        android:textSize="16sp"
-        android:layout_gravity="center"/>
+        android:textSize="16sp" />
 
 </LinearLayout>

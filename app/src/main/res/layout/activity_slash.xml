@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
     android:padding="16dp"
     tools:context=".MainActivity">
 
@@ -14,23 +14,22 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="WELCOME"
-        android:gravity="center"
-        android:textSize="32sp"
-        android:textStyle="bold"
         android:layout_marginTop="30dp"
+        android:gravity="center"
         android:letterSpacing="0.1"
         android:shadowColor="#55000000"
         android:shadowDx="2"
         android:shadowDy="2"
-        android:shadowRadius="4"/>
+        android:shadowRadius="4"
+        android:text="WELCOME"
+        android:textSize="32sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/gifImageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-/>
-
-
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop" />
 </LinearLayout>

@@ -5,33 +5,17 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <!-- Welcome Text -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="WELCOME"
-        android:gravity="center"
-        android:textSize="32sp"
-        android:textStyle="bold"
-
-        android:layout_marginTop="30dp"
-        android:letterSpacing="0.1"
-        android:shadowColor="#55000000"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="4"/>
-
-    <ImageView
-        android:id="@+id/gifImageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:scaleType="centerCrop"/>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="HOME"
+    android:textSize="100dp"
+    android:gravity="center"/>
 
 
 </LinearLayout>
