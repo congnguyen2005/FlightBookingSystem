@@ -1,135 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5A623">
+    android:padding="16dp"
+    tools:context=".MainActivity">
 
-    <!-- Title TextView -->
+    <!-- Tiêu đề ứng dụng -->
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
         android:text="Tìm kiếm chuyến bay"
         android:textSize="24sp"
-        android:textColor="#000000" />
+        android:textColor="#000"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp" />
 
-    <!-- Search Container -->
-
-    <!-- Tabs for Round Trip and One Way -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvTitle"
-        android:layout_gravity="center"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="234dp"
-        android:layout_marginEnd="20dp"
-        android:background="#80C7FA"
-        android:backgroundTint="#D1E6F9"
-        android:backgroundTintMode="multiply"
-        android:elevation="8dp"
-        android:orientation="vertical"
-        android:padding="20dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center">
-
-        <!-- One Way Tab -->
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Quá khứ"
-            android:textSize="18sp"
-            android:textColor="#000000" />
-
-        <!-- Round Trip Tab -->
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Khứ hồi"
-            android:textSize="18sp"
-            android:textColor="#000000" />
-    </LinearLayout>
-
-    <!-- Departure Input -->
+    <!-- Sân bay khởi hành -->
     <EditText
         android:id="@+id/etDeparture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Điểm đi"
+        android:hint="Sân bay khởi hành"
+        android:layout_below="@id/tvTitle"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/khung"
+        android:drawableStart="@drawable/ic_departure"/>
 
-        android:paddingStart="10dp"
-        android:backgroundTint="#FFFFFF"
-        android:drawablePadding="10dp" />
-
-    <!-- Arrival Input -->
+    <!-- Sân bay đến -->
     <EditText
-        android:id="@+id/etArrival"
+        android:id="@+id/etDestination"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Điểm đến"
+        android:hint="Sân bay đến"
+        android:layout_below="@id/etDeparture"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/khung"
+        android:drawableStart="@drawable/ic_arrival"/>
 
-        android:paddingStart="10dp"
-        android:backgroundTint="#FFFFFF"
-        android:drawablePadding="10dp" />
-
-    <!-- Date Picker Input -->
     <EditText
-        android:id="@+id/etDate"
+        android:id="@+id/etDepartureDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:hint="Ngày đi"
+        android:layout_below="@id/etDestination"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/khung"
+        android:padding="12dp"
+        android:focusable="false"
+        android:clickable="true"
+        android:drawableStart="@drawable/icons8_calendar_24"/>
 
-        android:paddingStart="10dp"
-        android:backgroundTint="#FFFFFF"
-        android:drawablePadding="10dp" />
-
-    <!-- Passenger Count Input -->
     <EditText
-        android:id="@+id/etPassengerCount"
+        android:id="@+id/etReturnDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Số người"
-        android:paddingStart="10dp"
-        android:backgroundTint="#FFFFFF"
-        android:drawablePadding="10dp" />
+        android:hint="Ngày về (không bắt buộc)"
+        android:layout_below="@id/etDepartureDate"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/khung"
+        android:padding="12dp"
+        android:focusable="false"
+        android:clickable="true"
+        android:drawableStart="@drawable/icons8_calendar_24"/>
 
-    <!-- Ticket Type Input -->
     <EditText
-        android:id="@+id/etTicketType"
+        android:id="@+id/etPassengers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Loại vé"
-        android:paddingStart="10dp"
-        android:backgroundTint="#FFFFFF"
-        android:drawablePadding="10dp" />
+        android:hint="Số lượng hành khách"
+        android:layout_below="@id/etReturnDate"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/khung"
+        android:padding="12dp"
+        android:drawableStart="@drawable/people_group"/>
 
-    <!-- Search Button -->
+    <!-- Nút Tìm kiếm -->
     <Button
         android:id="@+id/btnSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:background="#5D5DBA"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="Tìm kiếm"
+        android:text="Tìm kiếm chuyến bay"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        />
+        android:background="@drawable/custom_btn"
+        android:layout_below="@id/etPassengers"
+        android:layout_marginTop="24dp"
+        android:padding="12dp"/>
 
 </RelativeLayout>

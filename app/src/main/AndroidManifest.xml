@@ -13,16 +13,7 @@
         android:theme="@style/Theme.FlightBookingSystem"
         tools:targetApi="31">
         <activity
-            android:name=".ViewFlightInformationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".FlightSuggestionsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Information"
+            android:name=".SupportActivity"
             android:exported="false" />
         <activity
             android:name=".SearchFlights"
@@ -34,7 +25,7 @@
             android:name=".LogimActivity"
             android:exported="false" />
         <activity
-            android:name=".SlashActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

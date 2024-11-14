@@ -7,8 +7,15 @@
     <string name="forgot_password2"><u>Bạn đã có tài khoản?<b>Đăng nhập</b></u></string>
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="flight_image">flight_image.jpg</string>
 
+    <!-- Danh sách các loại câu hỏi hỗ trợ -->
+    <string-array name="question_categories">
+        <item>Khiếu nại</item>
+        <item>Đặt vé máy bay</item>
+        <item>Thanh toán</item>
+        <item>Hủy vé/Đổi chuyến</item>
+        <item>Khác</item>
+    </string-array>
 </resources>

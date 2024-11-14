@@ -15,7 +15,6 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="20dp"
         android:background="@drawable/khung_logo"
         android:clipToOutline="true"
         android:scaleType="centerCrop"
@@ -25,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="5dp"
         android:text="Đăng ký"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -177,7 +176,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="85dp"
-        android:layout_marginTop="10dp"
         android:layout_marginRight="85dp"
         android:background="@drawable/custom_btn"
         android:text="ĐĂNG KÝ"
@@ -191,7 +189,7 @@
         android:id="@+id/txtLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/custom_signup"
         android:padding="10dp"
         android:text="@string/forgot_password2" />
