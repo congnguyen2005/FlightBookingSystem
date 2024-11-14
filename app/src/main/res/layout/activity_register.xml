@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".LogimActivity">
+    tools:context=".LoginActivity">
 
 
     <ImageView
@@ -138,6 +138,7 @@
         android:textColor="#DD000000"
         android:textColorHint="#DDABABAB" />
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -192,7 +193,8 @@
         android:layout_marginTop="5dp"
         android:background="@drawable/custom_signup"
         android:padding="10dp"
-        android:text="@string/forgot_password2" />
+        android:text="@string/forgot_password2"
+        android:clickable="true"/>
 
 
 </LinearLayout>

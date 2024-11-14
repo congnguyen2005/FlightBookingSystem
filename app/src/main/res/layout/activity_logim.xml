@@ -9,7 +9,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".LogimActivity">
+    tools:context=".LoginActivity">
 
     <ImageView
         android:id="@+id/circularImageView"
@@ -84,6 +84,7 @@
         android:padding="10dp"
         android:text="@string/sign_up"
         android:textColor="#F4F1F1"
+        android:clickable="true"
         android:textSize="16sp" />
 
 </LinearLayout>
