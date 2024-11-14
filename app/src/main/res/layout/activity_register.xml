@@ -88,6 +88,8 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/custom_edittex"
+        android:drawableStart="@drawable/name"
+        android:drawablePadding="20dp"
         android:hint="Full Name"
         android:textColor="#DD000000"
         android:textColorHint="#DDABABAB" />
@@ -100,6 +102,8 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/custom_edittex"
+        android:drawableStart="@drawable/phone"
+        android:drawablePadding="20dp"
         android:hint="Phone"
         android:textColor="#DD000000"
         android:textColorHint="#DDABABAB" />
@@ -112,6 +116,8 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/custom_edittex"
+        android:drawableStart="@drawable/email"
+        android:drawablePadding="20dp"
         android:hint="Email"
         android:textColor="#DD000000"
         android:textColorHint="#DDABABAB" />
@@ -124,6 +130,8 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/custom_edittex"
+        android:drawableStart="@drawable/date"
+        android:drawablePadding="20dp"
         android:clickable="true"
         android:focusable="false"
         android:hint="Chọn ngày sinh"

@@ -38,9 +38,10 @@ public class SlashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 // Sau 5 giây chuyển sang MainActivity
-                Intent intent = new Intent(SlashActivity.this, MainActivity.class);
+                Intent intent = new Intent(SlashActivity.this, LogimActivity.class);
                 startActivity(intent);
                 finish();
+
             }
         }, 5000); // Delay 5 giây
     }

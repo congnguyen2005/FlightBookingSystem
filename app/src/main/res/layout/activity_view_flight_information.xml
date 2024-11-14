@@ -1,132 +1,215 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/gradient_bg">
 
+    <!-- Thành phố -->
+    <TextView
+        android:id="@+id/tv_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_button"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="Hà Nội - Đà Nẵng"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="bold"
+        android:elevation="4dp" />
+
+    <!-- Hình ảnh -->
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/anh"
+        android:elevation="4dp" />
+
+    <!-- Tiêu đề -->
+    <TextView
+        android:id="@+id/tv_all_flights"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="THÔNG TIN CHI TIẾT"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FF6F00"
+        android:layout_gravity="center" />
+
+    <!-- Thông tin chuyến bay -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="#FFFFFF"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:layout_marginBottom="16dp"
+        android:elevation="4dp">
 
-        <!-- Thành phố -->
+        <!-- Số hiệu chuyến bay -->
         <TextView
-            android:id="@+id/tv_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/rounded_button"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="Hà Nội - Đà Nẵng"
-            android:textSize="18sp" />
-
-        <!-- Hình ảnh -->
-        <ImageView
-            android:id="@+id/iv_image"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="16dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/anh" />
-
-        <!-- Tiêu đề -->
-        <TextView
-            android:id="@+id/tv_all_flights"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="THÔNG TIN CHI TIẾT"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:text="Số hiệu: PD10143"
+            android:textSize="14sp"
+            android:textColor="#333333" />
 
-        <!-- Thông tin chuyến bay -->
+        <!-- Tên hãng bay -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TÊN HÃNG: Vietravel Airlines"
+            android:textSize="14sp"
+            android:textColor="#FF6F00" />
+
+        <!-- Ngày bay -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NGÀY BAY: XX/DD/YYYY"
+            android:textSize="14sp"
+            android:textColor="#333333" />
+
+        <!-- Thời gian -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="#E0E0E0"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Số hiệu:PD10143 " />
-
-            <!-- Tên hãng bay -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TÊN HÃNG: Vietravel Airlines" />
+                android:text="Giờ khởi hành: 10h00"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:layout_weight="1" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="NGAY BAY: XX/DD/YYYY" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Gio khoi hanh : 10h00"
-
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="50dp"
-                    android:layout_weight="1"
-                    android:text="Gio ha canh : 15h00" />
-
-            </LinearLayout>
-            <!-- Vị trí -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Vị trí: Hà Nội - Đà Nẵng" />
-
-            <!-- Sân bay -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sân bay: Tân Sơn Nhất" />
-
-            <!-- Thời gian -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Thời gian: 8h30 - 10h40" />
-
-            <!-- Thông tin hành lý -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Thông tin: Hành lý" />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="end"
-                android:text="699k/khách"
-                android:textColor="#FF0000"
-                android:textSize="30sp" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:backgroundTint="#0000FF"
-                android:text="Chọn"
-                android:textColor="#FFFFFF" />
+                android:text="Giờ hạ cánh: 15h00"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:layout_weight="1"
+                android:layout_marginLeft="50dp" />
         </LinearLayout>
 
+        <!-- Thời lượng bay và Vị trí -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thời lượng bay: 5h"
+            android:textSize="14sp"
+            android:textColor="#333333" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Vị trí: Hà Nội - Đà Nẵng"
+            android:textSize="14sp"
+            android:textColor="#333333" />
+
+        <!-- Điểm dừng -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Điểm dừng: 1"
+                android:textSize="14sp"
+                android:textColor="#333333" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thông tin điểm dừng: Lorem"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:layout_marginLeft="30dp" />
+        </LinearLayout>
+
+        <!-- Hạng vé và Giá -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hạng vé: First Class"
+            android:textSize="14sp"
+            android:textColor="#333333" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ghế: 01"
+            android:textSize="14sp"
+            android:textColor="#333333" />
+
+        <!-- Thông tin hành lý -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hành lý miễn phí: 20kg"
+            android:textSize="14sp"
+            android:textColor="#333333" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phí hành lý thừa: 100k/5kg"
+            android:textSize="14sp"
+            android:textColor="#333333" />
+
+        <!-- Thông tin chuyến bay bổ sung -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Loại máy bay: Boeing 787"
+            android:textSize="14sp"
+            android:textColor="#333333" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Số ghế trống: 15"
+            android:textSize="14sp"
+            android:textColor="#333333" />
+
+        <!-- Điều kiện vé -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Điều kiện vé: Vé không hoàn"
+            android:textSize="14sp"
+            android:textColor="#333333" />
+
+        <!-- Dịch vụ bổ sung -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dịch vụ bổ sung: Chuyến bay có phục vụ bữa ăn"
+            android:textSize="14sp"
+            android:textColor="#333333" />
+
+        <!-- Khuyến mãi -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Khuyến mãi: Giảm giá 20% cho lần đặt tiếp theo"
+            android:textSize="14sp"
+            android:textColor="#FF0000"
+            android:textStyle="bold" />
     </LinearLayout>
-</ScrollView>
+</LinearLayout>
