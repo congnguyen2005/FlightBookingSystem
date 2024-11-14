@@ -13,16 +13,19 @@
         android:theme="@style/Theme.FlightBookingSystem"
         tools:targetApi="31">
         <activity
+            android:name=".Information"
+            android:exported="false" />
+        <activity
             android:name=".ViewFlightInformationActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".FlightSuggestionsActivity"
+            android:name=".Datve"
             android:exported="false" />
         <activity
-            android:name=".Information"
+            android:name=".FlightSuggestionsActivity"
             android:exported="false" />
         <activity
             android:name=".SearchFlights"
