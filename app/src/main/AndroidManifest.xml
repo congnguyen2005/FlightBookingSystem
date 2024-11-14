@@ -16,6 +16,9 @@
             android:name=".Information"
             android:exported="false" />
         <activity
+            android:name=".ChooseFlightTicketActivity"
+            android:exported="false" />
+        <activity
             android:name=".ViewFlightInformationActivity"
             android:exported="false" />
         <activity
