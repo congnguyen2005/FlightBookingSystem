@@ -5,30 +5,30 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LogimActivity"
+    android:gravity="center"
     android:orientation="vertical"
-    android:gravity="center">
+    tools:context=".LogimActivity">
 
 
     <ImageView
         android:id="@+id/circularImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/backgroud"
-        android:background="@drawable/khung_logo"
-        android:scaleType="centerCrop"
         android:layout_gravity="center"
         android:layout_marginBottom="20dp"
-        android:clipToOutline="true"/>
+        android:background="@drawable/khung_logo"
+        android:clipToOutline="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/backgroud" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:textStyle="bold"
         android:layout_marginBottom="20dp"
         android:text="Đăng ký"
-        android:textSize="30sp"/>
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
 
     <EditText
@@ -37,36 +37,47 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/custom_edittex"
+        android:drawableLeft="@drawable/user"
+        android:drawablePadding="20dp"
         android:hint="Username"
         android:textColor="#DD000000"
-        android:textColorHint="#DDABABAB"
-        android:layout_marginBottom="10dp"/>
+        android:textColorHint="#DDABABAB" />
 
 
     <EditText
+        android:id="@+id/edtRegisterPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/custom_edittex"
+        android:drawableStart="@drawable/password"
+        android:drawableEnd="@drawable/eye"
+        android:drawablePadding="20dp"
         android:hint="Password"
+        android:inputType="textPassword"
         android:textColor="#DD000000"
-        android:textColorHint="#DDABABAB"
-        android:layout_marginBottom="10dp"/>
+        android:textColorHint="#DDABABAB" />
 
 
     <EditText
-        android:id="@+id/edtRepass"
+        android:id="@+id/edtRegisterRePass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/custom_edittex"
-        android:hint="Re Password"
+        android:drawableStart="@drawable/password"
+        android:drawableEnd="@drawable/eye"
+        android:drawablePadding="20dp"
+        android:hint="Re-enter password"
+        android:inputType="textPassword"
         android:textColor="#DD000000"
-        android:textColorHint="#DDABABAB"
-        android:layout_marginBottom="10dp"/>
+        android:textColorHint="#DDABABAB" />
 
 
     <EditText
@@ -75,11 +86,11 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/custom_edittex"
-        android:hint="Nhập họ tên"
+        android:hint="Full Name"
         android:textColor="#DD000000"
-        android:textColorHint="#DDABABAB"
-        android:layout_marginBottom="10dp"/>
+        android:textColorHint="#DDABABAB" />
 
     <EditText
         android:id="@+id/edtPhone"
@@ -87,11 +98,23 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/custom_edittex"
-        android:hint="Nhập số điện thoại hoặc email"
+        android:hint="Phone"
         android:textColor="#DD000000"
-        android:textColorHint="#DDABABAB"
-        android:layout_marginBottom="10dp"/>
+        android:textColorHint="#DDABABAB" />
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/custom_edittex"
+        android:hint="Email"
+        android:textColor="#DD000000"
+        android:textColorHint="#DDABABAB" />
 
     <EditText
         android:id="@+id/edtBirthday"
@@ -99,46 +122,46 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"
-        android:background="@drawable/custom_edittex"
-        android:hint="Chọn ngày sinh"
-        android:textColor="#DD000000"
-        android:textColorHint="#DDABABAB"
         android:layout_marginBottom="10dp"
-        android:focusable="false"
+        android:background="@drawable/custom_edittex"
         android:clickable="true"
-        android:inputType="date" />
+        android:focusable="false"
+        android:hint="Chọn ngày sinh"
+        android:inputType="date"
+        android:textColor="#DD000000"
+        android:textColorHint="#DDABABAB" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="35dp"
+        android:layout_marginTop="10dp"
         android:text="Giới tính"
         android:textColor="#000000"
-        android:textStyle="bold"
-        android:layout_marginTop="10dp"/>
+        android:textStyle="bold" />
 
     <RadioGroup
         android:id="@+id/genderGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/radioMale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nam"
-            android:textColor="#000000"/>
+            android:textColor="#000000" />
 
         <RadioButton
             android:id="@+id/radioFemale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nữ"
-            android:textColor="#000000"/>
+            android:textColor="#000000" />
     </RadioGroup>
 
     <Button
@@ -146,25 +169,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="85dp"
-        android:layout_marginRight="85dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="85dp"
         android:background="@drawable/custom_btn"
-        app:backgroundTint="@null"
-        android:textSize="20dp"
-        android:textColor="#000000"
         android:text="ĐĂNG KÝ"
-        android:textAllCaps="true"/>
-
+        android:textAllCaps="true"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:backgroundTint="@null" />
 
 
     <TextView
         android:id="@+id/txtLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/forgot_password2"
+        android:layout_marginTop="10dp"
         android:background="@drawable/custom_signup"
         android:padding="10dp"
-        android:layout_marginTop="10dp"/>
+        android:text="@string/forgot_password2" />
 
 
 </LinearLayout>
