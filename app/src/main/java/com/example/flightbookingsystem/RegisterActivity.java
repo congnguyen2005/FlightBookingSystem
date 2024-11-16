@@ -1,26 +1,40 @@
 package com.example.flightbookingsystem;
 
+import android.app.DatePickerDialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.flightbookingsystem.database.DBHelper;
+
+import java.util.Calendar;
+import java.util.Date;
+
 public class RegisterActivity extends AppCompatActivity {
-    private TextView txtLogin;
+
     private EditText edtUser, edtPassword, edtRePassword, edtFullname, edtPhone, edtEmail, edtBirthday;
     private RadioGroup genderGroup;
     private RadioButton radioMale, radioFemale;
     private Button btnRegister;
+
+    private SQLiteDatabase database;
+    private DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,25 +52,78 @@ public class RegisterActivity extends AppCompatActivity {
         genderGroup = findViewById(R.id.genderGroup);
         radioMale = findViewById(R.id.radioMale);
         radioFemale = findViewById(R.id.radioFemale);
-        txtLogin = findViewById(R.id.txtLogin);
         btnRegister = findViewById(R.id.btnRegister);
+        // Khởi tạo SQLite database
+        Drawable eyeIcon = getResources().getDrawable(R.drawable.eye, getTheme()); // Biểu tượng mắt mở
+        Drawable passwordIcon = getResources().getDrawable(R.drawable.eye_close, getTheme());
+        Drawable passwordIconStart = getResources().getDrawable(R.drawable.password, getTheme()); // Biểu tượng đầu vào (password)
 
+        dbHelper = new DBHelper(this);
+        database = dbHelper.getWritableDatabase();
+        edtPassword.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    int touchX = (int) event.getX();
+                    int drawableWidth = edtPassword.getCompoundDrawables()[2].getBounds().width(); // Lấy độ rộng của drawableEnd
+                    if (touchX >= edtPassword.getWidth() - drawableWidth) {
+                        // Nếu chạm vào icon mắt, thay đổi inputType để hiển thị/ẩn mật khẩu
+                        if (edtPassword.getInputType() == InputType.TYPE_TEXT_VARIATION_PASSWORD) {
+                            edtPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD); // Hiển thị mật khẩu
+                            edtPassword.setCompoundDrawablesWithIntrinsicBounds(passwordIconStart, null, eyeIcon, null); // Giữ icon start, thay đổi icon mắt
+                        } else {
+                            edtPassword.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD); // Ẩn mật khẩu
+                            edtPassword.setCompoundDrawablesWithIntrinsicBounds(passwordIconStart, null, passwordIcon, null); // Giữ icon start, thay đổi icon mắt đóng
+                        }
+                        return true; // Ngừng xử lý sự kiện tiếp theo
+                    }
+                }
+                return false; // Tiếp tục xử lý sự kiện mặc định
+            }
+        });
+
+        edtRePassword.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    int touchX = (int) event.getX();
+                    int drawableWidth = edtRePassword.getCompoundDrawables()[2].getBounds().width(); // Lấy độ rộng của drawableEnd
+                    if (touchX >= edtRePassword.getWidth() - drawableWidth) {
+                        // Nếu chạm vào icon mắt, thay đổi inputType để hiển thị/ẩn mật khẩu
+                        if (edtRePassword.getInputType() == InputType.TYPE_TEXT_VARIATION_PASSWORD) {
+                            edtRePassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD); // Hiển thị mật khẩu
+                            edtRePassword.setCompoundDrawablesWithIntrinsicBounds(passwordIconStart, null, eyeIcon, null); // Giữ icon start, thay đổi icon mắt
+                        } else {
+                            edtRePassword.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD); // Ẩn mật khẩu
+                            edtRePassword.setCompoundDrawablesWithIntrinsicBounds(passwordIconStart, null, passwordIcon, null); // Giữ icon start, thay đổi icon mắt đóng
+                        }
+                        return true; // Ngừng xử lý sự kiện tiếp theo
+                    }
+                }
+                return false; // Tiếp tục xử lý sự kiện mặc định
+            }
+        });
+        edtBirthday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+showDatePickerDialog();
+            }
+        });
         // Xử lý sự kiện khi nhấn nút đăng ký
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registerUser();  // Gọi hàm đăng ký người dùng
-            }
-        });
-        txtLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
+        btnRegister.setOnClickListener(v -> registerUser());
+    }
+    private void showDatePickerDialog(){
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                RegisterActivity.this,
+        (view, selectedYear, selectedMonth, selectedDayOfMonth) -> {
+            // Hiển thị ngày được chọn trong EditText
+            edtBirthday.setText(selectedDayOfMonth + "/" + (selectedMonth + 1) + "/" + selectedYear);
+        }, year, month, dayOfMonth);
+        datePickerDialog.show();
     }
 
     private void registerUser() {
@@ -90,23 +157,42 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
-//         Lưu thông tin đăng ký vào SharedPreferences
-//        SharedPreferences sharedPreferences = getSharedPreferences("UserPrefs", Context.MODE_PRIVATE);
-//        SharedPreferences.Editor editor = sharedPreferences.edit();
-//        editor.putString("username", username);
-//        editor.putString("password", password);
-//        editor.putString("fullname", fullname);
-//        editor.putString("phone", phone);
-//        editor.putString("email", email);
-//        editor.putString("birthday", birthday);
-//        editor.putString("gender", gender);
-//        editor.apply(); // Lưu lại thay đổi
+        // Kiểm tra xem tên đăng nhập đã tồn tại trong cơ sở dữ liệu chưa
+        if (isUsernameExists(username)) {
+            Toast.makeText(this, "Tên đăng nhập đã tồn tại!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        Toast.makeText(this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
+        // Lưu thông tin người dùng vào cơ sở dữ liệu SQLite
+        ContentValues values = new ContentValues();
+        values.put("username", username);
+        values.put("password", password);
+        values.put("fullname", fullname);
+        values.put("phone", phone);
+        values.put("email", email);
+        values.put("birthday", birthday);
+        values.put("gender", gender);
 
-        // Chuyển đến màn hình đăng nhập
-        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);  // Sửa thành LoginActivity nếu cần
-        startActivity(intent);
-        finish();
+        long result = database.insert("users", null, values); // Insert vào bảng "users"
+        if (result == -1) {
+            Toast.makeText(this, "Đăng ký thất bại!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
+            // Chuyển đến màn hình đăng nhập
+            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
+
+    private boolean isUsernameExists(String username) {
+        String query = "SELECT * FROM users WHERE username = ?";
+        Cursor cursor = database.rawQuery(query, new String[]{username});
+        if (cursor.getCount() > 0) {
+            cursor.close();
+            return true;
+        }
+        cursor.close();
+        return false;
     }
 }

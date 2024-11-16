@@ -1,4 +1,4 @@
-package com.example.flightbookingsystem;
+package com.example.flightbookingsystem.Adapter;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Movie;

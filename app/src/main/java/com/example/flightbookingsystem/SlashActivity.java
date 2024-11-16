@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.flightbookingsystem.Adapter.MovieDrawable;
+
 import java.io.InputStream;
 
 public class SlashActivity extends AppCompatActivity {
@@ -34,7 +36,7 @@ public class SlashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 // Sau 5 giây chuyển sang MainActivity
-                Intent intent = new Intent(SlashActivity.this, LoginActivity.class);
+                Intent intent = new Intent(SlashActivity.this, RegisterActivity.class);
                 startActivity(intent);
                 finish();
 
