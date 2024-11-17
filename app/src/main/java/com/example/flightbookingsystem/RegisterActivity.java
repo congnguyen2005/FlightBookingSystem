@@ -75,7 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
                             edtPassword.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD); // Ẩn mật khẩu
                             edtPassword.setCompoundDrawablesWithIntrinsicBounds(passwordIconStart, null, passwordIcon, null); // Giữ icon start, thay đổi icon mắt đóng
                         }
-                        return true; // Ngừng xử lý sự kiện tiếp theo
+                        return true;
                     }
                 }
                 return false; // Tiếp tục xử lý sự kiện mặc định
@@ -125,7 +125,6 @@ showDatePickerDialog();
         }, year, month, dayOfMonth);
         datePickerDialog.show();
     }
-
     private void registerUser() {
         String username = edtUser.getText().toString().trim();
         String password = edtPassword.getText().toString().trim();
@@ -184,7 +183,6 @@ showDatePickerDialog();
             finish();
         }
     }
-
     private boolean isUsernameExists(String username) {
         String query = "SELECT * FROM users WHERE username = ?";
         Cursor cursor = database.rawQuery(query, new String[]{username});
