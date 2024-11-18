@@ -89,23 +89,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS Payments");
         onCreate(db);
     }
-    public boolean registerUser(String username, String password, String email, String phone, String fullName, String birthDate, String gender) {
-        SQLiteDatabase db = this.getWritableDatabase();
 
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("username", username);
-        contentValues.put("password", password);
-        contentValues.put("email", email);
-        contentValues.put("phone", phone);
-        contentValues.put("full_name", fullName);
-        contentValues.put("birth_date", birthDate);
-        contentValues.put("gender", gender);
-
-        long result = db.insert("Users", null, contentValues);
-        db.close();
-
-        return result != -1; // If insertion was successful
-    }
 
     // Method to authenticate the user during login
     public boolean authenticateUser(String username, String password) {
