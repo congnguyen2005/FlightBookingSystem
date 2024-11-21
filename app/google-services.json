@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "817664157241",
+    "project_id": "flightbookingsystem-843fe",
+    "storage_bucket": "flightbookingsystem-843fe.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817664157241:android:df1ea95690d3e88f82cfe8",
+        "android_client_info": {
+          "package_name": "com.example.flightbookingsystem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCmMWXhVg7l3vW4nXkms6Pj8CPUFUsKe8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

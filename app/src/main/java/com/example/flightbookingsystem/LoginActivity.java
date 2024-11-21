@@ -3,8 +3,11 @@ package com.example.flightbookingsystem;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -26,6 +29,9 @@ public class LoginActivity extends AppCompatActivity {
     private SQLiteDatabase database;
     private DBHelper dbHelper;
 
+    // Biến trạng thái hiển thị mật khẩu
+    private boolean isPasswordVisible = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,22 +45,52 @@ public class LoginActivity extends AppCompatActivity {
         txtForgot = findViewById(R.id.txtForgot);
         txtSignUp = findViewById(R.id.txtSignUp);
 
+        // Khởi tạo biểu tượng drawable
+        Drawable eyeIcon = getResources().getDrawable(R.drawable.eye, getTheme()); // Biểu tượng mắt mở
+        Drawable eyeCloseIcon = getResources().getDrawable(R.drawable.eye_close, getTheme()); // Biểu tượng mắt đóng
+        Drawable passwordIconStart = getResources().getDrawable(R.drawable.password, getTheme()); // Biểu tượng đầu vào mật khẩu
+
         // Khởi tạo database
         dbHelper = new DBHelper(this);
         database = dbHelper.getReadableDatabase();
 
-        // Xử lý sự kiện cho các nút
+        // Xử lý sự kiện đăng nhập
         btnLogin.setOnClickListener(v -> loginUser());
 
+        // Xử lý sự kiện chuyển đến màn hình đăng ký
         txtSignUp.setOnClickListener(v -> {
-            // Chuyển đến màn hình đăng ký
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
         });
 
+        // Xử lý sự kiện hiển thị/ẩn mật khẩu khi chạm vào icon
+        edtPass.setOnTouchListener((v, event) -> {
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                int touchX = (int) event.getX();
+                int drawableWidth = edtPass.getCompoundDrawables()[2] != null
+                        ? edtPass.getCompoundDrawables()[2].getBounds().width()
+                        : 0;
+                if (touchX >= edtPass.getWidth() - drawableWidth) {
+                    // Đổi trạng thái hiển thị mật khẩu
+                    isPasswordVisible = !isPasswordVisible;
+                    if (isPasswordVisible) {
+                        edtPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                        edtPass.setCompoundDrawablesWithIntrinsicBounds(passwordIconStart, null, eyeIcon, null);
+                    } else {
+                        edtPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                        edtPass.setCompoundDrawablesWithIntrinsicBounds(passwordIconStart, null, eyeCloseIcon, null);
+                    }
+                    edtPass.setSelection(edtPass.length()); // Đặt con trỏ ở cuối văn bản
+                    return true;
+                }
+            }
+            return false;
+        });
+
+        // Xử lý sự kiện quên mật khẩu
         txtForgot.setOnClickListener(v -> {
-            // Chuyển đến màn hình khôi phục mật khẩu (nếu có)
-            Toast.makeText(this, "Tính năng khôi phục mật khẩu đang được phát triển.", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+            startActivity(intent);
         });
     }
 
@@ -87,5 +123,31 @@ public class LoginActivity extends AppCompatActivity {
         boolean isValid = cursor.getCount() > 0;
         cursor.close();
         return isValid;
+    }
+
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("isPasswordVisible", isPasswordVisible);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        isPasswordVisible = savedInstanceState.getBoolean("isPasswordVisible", false);
+        Drawable eyeIcon = getResources().getDrawable(R.drawable.eye, getTheme());
+        Drawable eyeCloseIcon = getResources().getDrawable(R.drawable.eye_close, getTheme());
+        Drawable passwordIconStart = getResources().getDrawable(R.drawable.password, getTheme());
+
+        if (isPasswordVisible) {
+            edtPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+            edtPass.setCompoundDrawablesWithIntrinsicBounds(passwordIconStart, null, eyeIcon, null);
+        } else {
+            edtPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            edtPass.setCompoundDrawablesWithIntrinsicBounds(passwordIconStart, null, eyeCloseIcon, null);
+        }
+        edtPass.setSelection(edtPass.length());
     }
 }

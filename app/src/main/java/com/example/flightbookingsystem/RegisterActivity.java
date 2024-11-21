@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +28,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class RegisterActivity extends AppCompatActivity {
-
+    private TextView txtLogin;
     private EditText edtUser, edtPassword, edtRePassword, edtFullname, edtPhone, edtEmail, edtBirthday;
     private RadioGroup genderGroup;
     private RadioButton radioMale, radioFemale;
@@ -53,6 +54,7 @@ public class RegisterActivity extends AppCompatActivity {
         radioMale = findViewById(R.id.radioMale);
         radioFemale = findViewById(R.id.radioFemale);
         btnRegister = findViewById(R.id.btnRegister);
+        txtLogin = findViewById(R.id.txtLogin);
         // Khởi tạo SQLite database
         Drawable eyeIcon = getResources().getDrawable(R.drawable.eye, getTheme()); // Biểu tượng mắt mở
         Drawable passwordIcon = getResources().getDrawable(R.drawable.eye_close, getTheme());
@@ -60,6 +62,13 @@ public class RegisterActivity extends AppCompatActivity {
 
         dbHelper = new DBHelper(this);
         database = dbHelper.getWritableDatabase();
+        txtLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
         edtPassword.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -151,8 +160,32 @@ showDatePickerDialog();
             return;
         }
 
-        if (!password.equals(rePassword)) {
+        // Kiểm tra tên đăng nhập
+        if (username.length() < 8 || username.length() > 16 || !Character.isLetter(username.charAt(0))) {
+            Toast.makeText(this, "Tên đăng nhập không hợp lệ!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Kiểm tra mật khẩu
+        if (password.length() < 8 || password.length() > 16) {
+            Toast.makeText(this, "Mật khẩu phải không hợp lệ!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!password.equals(rePassword) || rePassword.length() < 8 || rePassword.length() > 16) {
             Toast.makeText(this, "Mật khẩu nhập lại không khớp!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Kiểm tra số điện thoại
+        if (phone.length() < 10 || phone.length() > 12) {
+            Toast.makeText(this, "Số điện thoại phải có từ 10 đến 12 ký tự!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Kiểm tra email
+        if (email.length() <= 5 || !email.contains("@") || !email.endsWith(".com")) {
+            Toast.makeText(this, "Email không hợp lệ!", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -183,6 +216,7 @@ showDatePickerDialog();
             finish();
         }
     }
+
     private boolean isUsernameExists(String username) {
         String query = "SELECT * FROM users WHERE username = ?";
         Cursor cursor = database.rawQuery(query, new String[]{username});

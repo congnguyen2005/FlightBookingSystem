@@ -1,95 +1,102 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/backgroud"
-    tools:context=".LoginActivity">
-
-    <LinearLayout
-        android:id="@+id/main"
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="match_parent"
+        android:background="@drawable/backgroud"
+        tools:context=".LoginActivity">
 
-        <ImageView
-            android:id="@+id/circularImageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/khung_logo"
-            android:clipToOutline="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/backgroud" />
-
-        <EditText
-            android:id="@+id/edt_user"
+        <LinearLayout
+            android:id="@+id/main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/custom_edittex"
-            android:hint="username_or_email"
-            android:padding="12dp"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <EditText
-            android:id="@+id/edt_pass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/custom_edittex"
-            android:hint="password"
-            android:padding="12dp"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
+            <ImageView
+                android:id="@+id/circularImageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/khung_logo"
+                android:clipToOutline="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/backgroud" />
 
-        <CheckBox
-            android:id="@+id/chkRemember"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:text="@string/forgot_password1"
-            android:textColor="#FFFFFF" />
+            <EditText
+                android:id="@+id/edt_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_edittex"
+                android:drawableStart="@drawable/name"
+                android:drawablePadding="15dp"
+                android:hint="username_or_email"
+                android:padding="12dp"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/btn_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/custom_btn"
-            android:padding="12dp"
-            android:text="login"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:backgroundTint="@null" />
+            <EditText
+                android:id="@+id/edt_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/custom_edittex"
+                android:drawableStart="@drawable/password"
+                android:drawablePadding="15dp"
+                android:drawableEnd="@drawable/eye"
+                android:inputType="textPassword"
+                android:hint="password"
+                android:padding="12dp"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/txtForgot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:padding="5dp"
-            android:text="@string/forgot_password1"
-            android:textColor="#FFFFFF" />
+            <CheckBox
+                android:id="@+id/chkRemember"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="@string/remember_me"
+              />
 
-        <TextView
-            android:id="@+id/txtSignUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/custom_signup"
-            android:padding="10dp"
-            android:text="@string/sign_up"
-            android:textColor="#F4F1F1"
-            android:clickable="true"
-            android:textSize="16sp" />
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custom_btn"
+                android:padding="12dp"
+                android:text="login"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null" />
 
-    </LinearLayout>
-</ScrollView>
+            <TextView
+                android:id="@+id/txtForgot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text="@string/forgot_password1"
+                android:textColor="#FFFFFF"
+                android:onClick="onForgotPasswordClick" />
+
+            <TextView
+                android:id="@+id/txtSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/custom_signup"
+                android:padding="10dp"
+                android:text="@string/sign_up"
+                android:textColor="#F4F1F1"
+                android:clickable="true"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </ScrollView>

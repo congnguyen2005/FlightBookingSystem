@@ -81,7 +81,10 @@
         android:layout_height="120dp"
         android:scaleType="centerCrop"
         android:src="@drawable/khung" />
-
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     <!-- Gợi ý chuyến bay -->
     <TextView
         android:layout_below="@id/banner_discount"

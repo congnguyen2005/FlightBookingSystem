@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">assigment</string>
+    <string name="app_name"><u>Đặt vé máy bay</u></string>
     <string name="forgot_password1"><u>Bạn quên mật khẩu?</u></string>
     <string name="sign_up">Bạn chưa có tài khoản?<b>Đăng ký</b></string>
     <string name="edit"><u>Chỉnh sửa</u></string>
@@ -9,7 +9,7 @@
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="flight_image">flight_image.jpg</string>
-
+    <string name="remember_me"><u>Remember me</u></string>
     <!-- Danh sách các loại câu hỏi hỗ trợ -->
     <string-array name="question_categories">
         <item>Khiếu nại</item>

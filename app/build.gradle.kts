@@ -1,6 +1,6 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android") version "1.8.0"
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -44,4 +44,8 @@ dependencies {
      implementation(libs.appcompat)
      implementation(libs.material)
      implementation(libs.constraintlayout)
+    implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
 }
