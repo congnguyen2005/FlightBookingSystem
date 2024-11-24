@@ -18,4 +18,11 @@
         <item>Hủy vé/Đổi chuyến</item>
         <item>Khác</item>
     </string-array>
+    <string-array name="luggage_options">
+        <item>Không có hành lý</item>
+        <item>15kg</item>
+        <item>20kg</item>
+        <item>25kg</item>
+        <item>30kg</item>
+    </string-array>
 </resources>

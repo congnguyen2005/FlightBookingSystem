@@ -16,6 +16,8 @@
             android:exported="true" />
         <activity android:name=".ChooseFlightTicketActivity"
             android:exported="true" />
+        <activity android:name=".FlightSuggestionsActivity"
+            android:exported="true" />
         <activity
             android:name=".ForgotPasswordActivity"
             android:exported="false" />

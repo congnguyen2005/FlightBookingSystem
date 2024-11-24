@@ -1,12 +1,14 @@
 package com.example.flightbookingsystem.Fragnment;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -14,21 +16,24 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.flightbookingsystem.FlightSuggestionsActivity;
+import com.example.flightbookingsystem.MainActivity;
 import com.example.flightbookingsystem.R;
 
 import java.util.Calendar;
 
 public class FragmentSearchFlights extends Fragment {
 
-    private EditText etDeparture, etDestination, etDepartureDate, etReturnDate, etPassengers;
+    private AutoCompleteTextView etDeparture, etDestination;
+    private EditText etDepartureDate, etReturnDate, etPassengers;
     private Button btnSearch;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_fragment_search_flights, container, false);
+        View view = inflater.inflate(R.layout.fragment_search_flights, container, false);
 
-        // Ánh xạ các thành phần
+        // Initialize views
         etDeparture = view.findViewById(R.id.etDeparture);
         etDestination = view.findViewById(R.id.etDestination);
         etDepartureDate = view.findViewById(R.id.etDepartureDate);
@@ -36,48 +41,62 @@ public class FragmentSearchFlights extends Fragment {
         etPassengers = view.findViewById(R.id.etPassengers);
         btnSearch = view.findViewById(R.id.btnSearch);
 
-        // Xử lý chọn ngày đi
-        etDepartureDate.setOnClickListener(v -> showDatePickerDialog(etDepartureDate));
+        // Set up AutoCompleteTextView with airport suggestions
+        setupAirportDropdown();
 
-        // Xử lý chọn ngày về
-        etReturnDate.setOnClickListener(v -> showDatePickerDialog(etReturnDate));
+        // Set up date pickers for the date fields
+        setupDatePicker(etDepartureDate);
+        setupDatePicker(etReturnDate);
 
-        // Xử lý khi nhấn nút Tìm kiếm
+        // Handle the search button click
         btnSearch.setOnClickListener(v -> {
-            String departure = etDeparture.getText().toString().trim();
-            String destination = etDestination.getText().toString().trim();
-            String departureDate = etDepartureDate.getText().toString().trim();
-            String returnDate = etReturnDate.getText().toString().trim();
-            String passengers = etPassengers.getText().toString().trim();
+            String departure = etDeparture.getText().toString();
+            String destination = etDestination.getText().toString();
+            String departureDate = etDepartureDate.getText().toString();
+            String returnDate = etReturnDate.getText().toString();
+            String passengers = etPassengers.getText().toString();
 
-            // Kiểm tra thông tin nhập vào
+            // Check if all required fields are filled
             if (departure.isEmpty() || destination.isEmpty() || departureDate.isEmpty() || passengers.isEmpty()) {
-                Toast.makeText(getContext(), "Vui lòng điền đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
             } else {
-                // Xử lý logic tìm kiếm chuyến bay
-                Toast.makeText(getContext(), "Tìm kiếm chuyến bay...", Toast.LENGTH_SHORT).show();
-                // Gửi dữ liệu sang giao diện khác hoặc thực hiện API call
+                // Show a message when search is triggered
+                Toast.makeText(getActivity(), "Đang tìm kiếm chuyến bay...", Toast.LENGTH_SHORT).show();
+
+                // Navigate to the MainActivity
+                Intent intent = new Intent(getActivity(), FlightSuggestionsActivity.class);
+                startActivity(intent);
             }
         });
 
         return view;
     }
 
-    private void showDatePickerDialog(EditText targetEditText) {
-        final Calendar calendar = Calendar.getInstance();
+    private void setupAirportDropdown() {
+        // Create an array or list of airports
+        String[] airports = new String[] {"Sân bay Nội Bài", "Sân bay Tân Sơn Nhất", "Sân bay Đà Nẵng"};
+
+        // Set the adapter for the AutoCompleteTextViews
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_dropdown_item_1line, airports);
+        etDeparture.setAdapter(adapter);
+        etDestination.setAdapter(adapter);
+    }
+
+    private void setupDatePicker(EditText editText) {
+        Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        DatePickerDialog datePickerDialog = new DatePickerDialog(
-                getContext(),
-                (view, year1, month1, dayOfMonth) -> {
-                    String selectedDate = dayOfMonth + "/" + (month1 + 1) + "/" + year1;
-                    targetEditText.setText(selectedDate);
-                },
-                year, month, day
-        );
-
-        datePickerDialog.show();
+        // Show date picker dialog when the user clicks on the EditText
+        editText.setOnClickListener(v -> {
+            DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),
+                    (view, year1, month1, dayOfMonth) -> {
+                        // Format the date and set it to the EditText
+                        String date = dayOfMonth + "/" + (month1 + 1) + "/" + year1;
+                        editText.setText(date);
+                    }, year, month, day);
+            datePickerDialog.show();
+        });
     }
 }

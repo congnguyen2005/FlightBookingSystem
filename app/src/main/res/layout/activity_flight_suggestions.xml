@@ -5,18 +5,18 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- Hiển thị thông tin tìm kiếm -->
     <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewSearchInfo"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Gợi ý chuyến bay"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:text="Thông tin tìm kiếm sẽ hiển thị ở đây"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"/>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <!-- RecyclerView hiển thị chuyến bay gợi ý -->
+    <RecyclerView
         android:id="@+id/rvFlightSuggestions"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="8dp" />
+        android:layout_height="match_parent"/>
 </LinearLayout>
