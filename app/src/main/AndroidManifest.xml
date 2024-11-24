@@ -12,27 +12,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FlightBookingSystem"
         tools:targetApi="31">
+
+        <!-- SlashActivity được đặt làm màn hình khởi chạy -->
         <activity
-            android:name=".SupportActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SearchFlights"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".SlashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- MainActivity (màn hình chính của ứng dụng) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".SupportActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
