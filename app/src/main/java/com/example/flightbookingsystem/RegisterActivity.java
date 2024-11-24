@@ -177,7 +177,6 @@ showDatePickerDialog();
             return;
         }
 
-        // Kiểm tra số điện thoại
         if (phone.length() < 10 || phone.length() > 12) {
             Toast.makeText(this, "Số điện thoại phải có từ 10 đến 12 ký tự!", Toast.LENGTH_SHORT).show();
             return;

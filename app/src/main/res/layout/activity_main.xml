@@ -22,7 +22,6 @@
         android:textColorHint="#888888"
         android:drawableTint="#888888" />
 
-    <!-- Nút chuyển hướng đến các trang chính -->
     <LinearLayout
         android:id="@+id/layout_buttons"
         android:layout_below="@id/search_bar"
@@ -166,6 +165,7 @@
 
         <!-- Mục ưu đãi -->
         <LinearLayout
+            android:id="@+id/your_linear_layout_id"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -184,6 +184,7 @@
                 android:textSize="12sp"
                 android:textColor="#888888" />
         </LinearLayout>
+
 
         <!-- Gợi ý -->
         <LinearLayout
@@ -208,6 +209,7 @@
 
         <!-- Hỗ trợ -->
         <LinearLayout
+            android:id="@+id/lnHoTro"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
