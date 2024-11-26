@@ -16,8 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.flightbookingsystem.FlightSuggestionsActivity;
-import com.example.flightbookingsystem.MainActivity;
 import com.example.flightbookingsystem.R;
 
 import java.util.Calendar;
@@ -33,7 +31,7 @@ public class FragmentSearchFlights extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search_flights, container, false);
 
-        // Initialize views
+        // Khởi tạo các thành phần giao diện
         etDeparture = view.findViewById(R.id.etDeparture);
         etDestination = view.findViewById(R.id.etDestination);
         etDepartureDate = view.findViewById(R.id.etDepartureDate);
@@ -41,30 +39,18 @@ public class FragmentSearchFlights extends Fragment {
         etPassengers = view.findViewById(R.id.etPassengers);
         btnSearch = view.findViewById(R.id.btnSearch);
 
-        // Set up AutoCompleteTextView with airport suggestions
+        // Cài đặt danh sách sân bay
         setupAirportDropdown();
 
-        // Set up date pickers for the date fields
-        setupDatePicker(etDepartureDate);
-        setupDatePicker(etReturnDate);
+        // Cài đặt chọn ngày
+        setupDatePicker(etDepartureDate, true); // Ngày đi không được nhỏ hơn ngày hiện tại
+        setupDatePicker(etReturnDate, false); // Ngày về không bắt buộc
 
-        // Handle the search button click
+        // Xử lý sự kiện nút Tìm kiếm
         btnSearch.setOnClickListener(v -> {
-            String departure = etDeparture.getText().toString();
-            String destination = etDestination.getText().toString();
-            String departureDate = etDepartureDate.getText().toString();
-            String returnDate = etReturnDate.getText().toString();
-            String passengers = etPassengers.getText().toString();
-
-            // Check if all required fields are filled
-            if (departure.isEmpty() || destination.isEmpty() || departureDate.isEmpty() || passengers.isEmpty()) {
-                Toast.makeText(getActivity(), "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
-            } else {
-                // Show a message when search is triggered
+            if (validateInputs()) {
                 Toast.makeText(getActivity(), "Đang tìm kiếm chuyến bay...", Toast.LENGTH_SHORT).show();
-
-                // Navigate to the MainActivity
-                Intent intent = new Intent(getActivity(), FlightSuggestionsActivity.class);
+                Intent intent = new Intent(getActivity(), GoiYFragment.class);
                 startActivity(intent);
             }
         });
@@ -73,30 +59,58 @@ public class FragmentSearchFlights extends Fragment {
     }
 
     private void setupAirportDropdown() {
-        // Create an array or list of airports
-        String[] airports = new String[] {"Sân bay Nội Bài", "Sân bay Tân Sơn Nhất", "Sân bay Đà Nẵng"};
-
-        // Set the adapter for the AutoCompleteTextViews
+        String[] airports = {"Sân bay Nội Bài", "Sân bay Tân Sơn Nhất", "Sân bay Đà Nẵng"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_dropdown_item_1line, airports);
         etDeparture.setAdapter(adapter);
         etDestination.setAdapter(adapter);
     }
 
-    private void setupDatePicker(EditText editText) {
+    private void setupDatePicker(EditText editText, boolean restrictPastDates) {
         Calendar calendar = Calendar.getInstance();
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH);
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-
-        // Show date picker dialog when the user clicks on the EditText
         editText.setOnClickListener(v -> {
             DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(),
-                    (view, year1, month1, dayOfMonth) -> {
-                        // Format the date and set it to the EditText
-                        String date = dayOfMonth + "/" + (month1 + 1) + "/" + year1;
+                    (view, year, month, dayOfMonth) -> {
+                        String date = dayOfMonth + "/" + (month + 1) + "/" + year;
                         editText.setText(date);
-                    }, year, month, day);
+                    },
+                    calendar.get(Calendar.YEAR),
+                    calendar.get(Calendar.MONTH),
+                    calendar.get(Calendar.DAY_OF_MONTH));
+
+            if (restrictPastDates) {
+                datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
+            }
             datePickerDialog.show();
         });
+    }
+
+    private boolean validateInputs() {
+        String departure = etDeparture.getText().toString();
+        String destination = etDestination.getText().toString();
+        String departureDate = etDepartureDate.getText().toString();
+        String passengers = etPassengers.getText().toString();
+
+        if (departure.isEmpty() || destination.isEmpty() || departureDate.isEmpty() || passengers.isEmpty()) {
+            Toast.makeText(getActivity(), "Vui lòng điền đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (departure.equals(destination)) {
+            Toast.makeText(getActivity(), "Sân bay đi và đến không được trùng nhau!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        try {
+            int numPassengers = Integer.parseInt(passengers);
+            if (numPassengers <= 0) {
+                Toast.makeText(getActivity(), "Số lượng hành khách phải lớn hơn 0!", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            Toast.makeText(getActivity(), "Số lượng hành khách không hợp lệ!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
     }
 }

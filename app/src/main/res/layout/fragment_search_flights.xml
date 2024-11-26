@@ -4,16 +4,17 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- Tiêu đề -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tìm kiếm chuyến bay "
+        android:text="Tìm kiếm chuyến bay"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginTop="16dp"
         android:gravity="center"/>
 
-    <!-- Sân bay khởi hành (Departure) - Dropdown -->
+    <!-- Sân bay khởi hành -->
     <AutoCompleteTextView
         android:id="@+id/etDeparture"
         android:layout_width="match_parent"
@@ -22,11 +23,11 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/khung"
         android:drawableStart="@drawable/ic_departure"
-        android:drawablePadding="20dp"
+        android:drawablePadding="10dp"
         android:focusable="true"
         android:clickable="true"/>
 
-    <!-- Sân bay đến (Destination) - Dropdown -->
+    <!-- Sân bay đến -->
     <AutoCompleteTextView
         android:id="@+id/etDestination"
         android:layout_width="match_parent"
@@ -34,12 +35,12 @@
         android:hint="Sân bay đến"
         android:layout_marginTop="16dp"
         android:background="@drawable/khung"
-        android:drawablePadding="20dp"
         android:drawableStart="@drawable/ic_arrival"
+        android:drawablePadding="10dp"
         android:focusable="true"
         android:clickable="true"/>
 
-    <!-- Ngày đi (Departure Date) -->
+    <!-- Ngày đi -->
     <EditText
         android:id="@+id/etDepartureDate"
         android:layout_width="match_parent"
@@ -47,13 +48,12 @@
         android:hint="Ngày đi"
         android:layout_marginTop="16dp"
         android:background="@drawable/khung"
-        android:padding="12dp"
-        android:focusable="false"        android:drawablePadding="20dp"
+        android:drawableStart="@drawable/icons8_calendar_24"
+        android:drawablePadding="10dp"
+        android:focusable="false"
+        android:clickable="true"/>
 
-        android:clickable="true"
-        android:drawableStart="@drawable/icons8_calendar_24"/>
-
-    <!-- Ngày về (Return Date) -->
+    <!-- Ngày về -->
     <EditText
         android:id="@+id/etReturnDate"
         android:layout_width="match_parent"
@@ -61,11 +61,10 @@
         android:hint="Ngày về (không bắt buộc)"
         android:layout_marginTop="16dp"
         android:background="@drawable/khung"
-        android:padding="12dp"
+        android:drawableStart="@drawable/icons8_calendar_24"
+        android:drawablePadding="10dp"
         android:focusable="false"
-        android:clickable="true"        android:drawablePadding="20dp"
-
-        android:drawableStart="@drawable/icons8_calendar_24"/>
+        android:clickable="true"/>
 
     <!-- Số lượng hành khách -->
     <EditText
@@ -74,11 +73,11 @@
         android:layout_height="wrap_content"
         android:hint="Số lượng hành khách"
         android:layout_marginTop="16dp"
-        android:drawablePadding="20dp"
+        android:background="@drawable/khung"
         android:drawableStart="@drawable/user"
-        android:background="@drawable/khung"/>
+        android:drawablePadding="10dp"/>
 
-    <!-- Nút Tìm kiếm -->
+    <!-- Nút tìm kiếm -->
     <Button
         android:id="@+id/btnSearch"
         android:layout_width="match_parent"
@@ -87,5 +86,4 @@
         android:layout_marginTop="16dp"
         android:background="@color/black"
         android:textColor="@android:color/white"/>
-
 </LinearLayout>

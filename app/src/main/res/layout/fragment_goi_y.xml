@@ -1,22 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Hiển thị thông tin tìm kiếm -->
     <TextView
-        android:id="@+id/textViewSearchInfo"
+        android:id="@+id/tvSearchInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Thông tin tìm kiếm sẽ hiển thị ở đây"
+        android:text="Thông tin tìm kiếm"
         android:textSize="18sp"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp" />
 
-    <!-- RecyclerView hiển thị chuyến bay gợi ý -->
-    <RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFlightSuggestions"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 </LinearLayout>
