@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -21,8 +20,7 @@
         android:textColor="#000000"
         android:textColorHint="#888888"
         android:drawableTint="#888888" />
-
-    <!-- Nút chuyển hướng đến các trang chính -->
+        <!-- Nút chuyển hướng đến các trang chính -->
     <LinearLayout
         android:id="@+id/layout_buttons"
         android:layout_below="@id/search_bar"
@@ -33,15 +31,12 @@
         android:paddingHorizontal="16dp"
         android:gravity="center">
 
-        <!-- Nút Đặt vé máy bay -->
         <Button
             android:id="@+id/btn_book_flight"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Đặt vé"
-            android:gravity="center"
-            android:drawablePadding="8dp"
             android:textColor="#FFFFFF"
             android:backgroundTint="#FF6200EE" />
 
@@ -51,8 +46,6 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Hỗ trợ"
-            android:gravity="center"
-            android:drawablePadding="8dp"
             android:textColor="#FFFFFF"
             android:backgroundTint="#FF6200EE"
             android:layout_marginStart="16dp" />
@@ -60,8 +53,8 @@
 
     <!-- Mục Ưu đãi -->
     <TextView
-        android:layout_below="@id/layout_buttons"
         android:id="@+id/ud"
+        android:layout_below="@id/layout_buttons"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_width="wrap_content"
@@ -84,8 +77,8 @@
 
     <!-- Gợi ý chuyến bay -->
     <TextView
-        android:layout_below="@id/banner_discount"
         android:id="@+id/gycb"
+        android:layout_below="@id/banner_discount"
         android:layout_marginTop="24dp"
         android:layout_marginStart="16dp"
         android:layout_width="wrap_content"
@@ -95,16 +88,12 @@
         android:textColor="#000000"
         android:textStyle="bold" />
 
-    <!-- Danh sách gợi ý chuyến bay (dạng RecyclerView) -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_suggestions"
+        android:id="@+id/flight_suggestions_recycler"
         android:layout_below="@id/gycb"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:clipToPadding="false"
-        android:background="@drawable/khung"
         android:layout_margin="10dp" />
 
 </RelativeLayout>

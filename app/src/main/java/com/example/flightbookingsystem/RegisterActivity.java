@@ -76,7 +76,6 @@ public class RegisterActivity extends AppCompatActivity {
                     int touchX = (int) event.getX();
                     int drawableWidth = edtPassword.getCompoundDrawables()[2].getBounds().width(); // Lấy độ rộng của drawableEnd
                     if (touchX >= edtPassword.getWidth() - drawableWidth) {
-                        // Nếu chạm vào icon mắt, thay đổi inputType để hiển thị/ẩn mật khẩu
                         if (edtPassword.getInputType() == InputType.TYPE_TEXT_VARIATION_PASSWORD) {
                             edtPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD); // Hiển thị mật khẩu
                             edtPassword.setCompoundDrawablesWithIntrinsicBounds(passwordIconStart, null, eyeIcon, null); // Giữ icon start, thay đổi icon mắt

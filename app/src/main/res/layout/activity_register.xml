@@ -1,204 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".LoginActivity">
+    android:padding="16dp"
+    tools:context=".Datve">
 
-
-    <ImageView
-        android:id="@+id/circularImageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:background="@drawable/khung_logo"
-        android:clipToOutline="true"
-        android:scaleType="centerCrop"
-        android:src="@drawable/backgroud" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginBottom="5dp"
-        android:text="Đăng ký"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
-
-    <EditText
-        android:id="@+id/edtUser"
+    <LinearLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/custom_edittex"
-        android:drawableLeft="@drawable/user"
-        android:drawablePadding="20dp"
-        android:hint="Username"
-        android:textColor="#DD000000"
-        android:textColorHint="#DDABABAB" />
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".LoginActivity">
 
+        <!-- Hình ảnh logo -->
+        <ImageView
+            android:id="@+id/circularImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:background="@drawable/khung_logo"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/backgroud" />
 
-    <EditText
-        android:id="@+id/edtRegisterPass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/custom_edittex"
-        android:drawableStart="@drawable/password"
-        android:drawableEnd="@drawable/eye"
-        android:drawablePadding="20dp"
-        android:text="111"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:textColor="#DD000000"
-        android:textColorHint="#DDABABAB" />
-
-    <EditText
-        android:id="@+id/edtRegisterRePass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/custom_edittex"
-        android:drawableStart="@drawable/password"
-        android:drawableEnd="@drawable/eye"
-        android:drawablePadding="20dp"
-        android:text="111"
-        android:hint="Re-enter password"
-        android:inputType="textPassword"
-        android:textColor="#DD000000"
-        android:textColorHint="#DDABABAB" />
-
-
-    <EditText
-        android:id="@+id/edtFullname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/custom_edittex"
-        android:drawableStart="@drawable/name"
-        android:text="111"
-        android:drawablePadding="20dp"
-        android:hint="Full Name"
-        android:textColor="#DD000000"
-        android:textColorHint="#DDABABAB" />
-
-    <EditText
-        android:id="@+id/edtPhone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/custom_edittex"
-        android:drawableStart="@drawable/phone"
-        android:drawablePadding="20dp"
-        android:text="111"
-        android:hint="Phone"
-        android:textColor="#DD000000"
-        android:textColorHint="#DDABABAB" />
-
-    <EditText
-        android:id="@+id/edtEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/custom_edittex"
-        android:drawableStart="@drawable/email"
-        android:drawablePadding="20dp"
-        android:text="111"
-        android:hint="Email"
-        android:textColor="#DD000000"
-        android:textColorHint="#DDABABAB" />
-
-    <EditText
-        android:id="@+id/edtBirthday"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/custom_edittex"
-        android:drawableStart="@drawable/date"
-        android:drawablePadding="20dp"
-        android:clickable="true"
-        android:focusable="false"
-        android:hint="Chọn ngày sinh"
-        android:inputType="date"
-        android:textColor="#DD000000"
-        android:textColorHint="#DDABABAB" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="10dp"
-        android:text="Giới tính"
-        android:textColor="#000000"
-        android:textStyle="bold" />
-
-    <RadioGroup
-        android:id="@+id/genderGroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/radioMale"
+        <!-- Tiêu đề -->
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nam"
-            android:textColor="#000000" />
+            android:layout_marginBottom="5dp"
+            android:text="Đăng ký"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
-        <RadioButton
-            android:id="@+id/radioFemale"
+        <!-- Nhập tên người dùng -->
+        <EditText
+            android:id="@+id/edtUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_edittex"
+            android:drawableLeft="@drawable/user"
+            android:drawablePadding="20dp"
+            android:hint="Tên đăng nhập"
+            android:textColor="#DD000000"
+            android:textColorHint="#DDABABAB"
+            android:inputType="text" />
+
+        <!-- Nhập mật khẩu -->
+        <EditText
+            android:id="@+id/edtRegisterPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_edittex"
+            android:drawableStart="@drawable/password"
+            android:drawableEnd="@drawable/eye"
+            android:drawablePadding="20dp"
+            android:text="1234344589"
+            android:hint="Mật khẩu"
+            android:inputType="textPassword"
+            android:textColor="#DD000000"
+            android:textColorHint="#DDABABAB" />
+
+        <!-- Nhập lại mật khẩu -->
+        <EditText
+            android:id="@+id/edtRegisterRePass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_edittex"
+            android:drawableStart="@drawable/password"
+            android:drawableEnd="@drawable/eye"
+            android:drawablePadding="20dp"
+            android:text="1234344589"
+            android:hint="Nhập lại mật khẩu"
+            android:inputType="textPassword"
+            android:textColor="#DD000000"
+            android:textColorHint="#DDABABAB" />
+
+        <!-- Họ và tên -->
+        <EditText
+            android:id="@+id/edtFullname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_edittex"
+            android:drawableStart="@drawable/name"
+            android:drawablePadding="20dp"
+            android:hint="Họ và tên"
+            android:text="Công Nguyên"
+            android:inputType="textPersonName"
+            android:textColor="#DD000000"
+            android:textColorHint="#DDABABAB" />
+
+        <!-- Số điện thoại -->
+        <EditText
+            android:id="@+id/edtPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_edittex"
+            android:drawableStart="@drawable/phone"
+            android:drawablePadding="20dp"
+            android:text="0178965412"
+            android:hint="Số điện thoại"
+            android:inputType="phone"
+            android:textColor="#DD000000"
+            android:textColorHint="#DDABABAB" />
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_edittex"
+            android:drawableStart="@drawable/email"
+            android:drawablePadding="20dp"
+            android:hint="Email"
+            android:text="dahjkkjhkh@gmail.com"
+            android:inputType="textEmailAddress"
+            android:textColor="#DD000000"
+            android:textColorHint="#DDABABAB" />
+
+        <!-- Ngày sinh -->
+        <EditText
+            android:id="@+id/edtBirthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/custom_edittex"
+            android:drawableStart="@drawable/date"
+            android:drawablePadding="20dp"
+            android:hint="Chọn ngày sinh"
+            android:focusable="false"
+            android:clickable="true"
+            android:textColor="#DD000000"
+            android:textColorHint="#DDABABAB" />
+
+        <!-- Giới tính -->
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nữ"
-            android:textColor="#000000" />
-    </RadioGroup>
+            android:layout_marginTop="10dp"
+            android:text="Giới tính"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="85dp"
-        android:layout_marginRight="85dp"
-        android:background="@drawable/custom_btn"
-        android:text="ĐĂNG KÝ"
-        android:textAllCaps="true"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        app:backgroundTint="@null" />
+        <RadioGroup
+            android:id="@+id/genderGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
 
+            <RadioButton
+                android:id="@+id/radioMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nam"
+                android:textColor="#000000" />
 
-    <TextView
-        android:id="@+id/txtLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/custom_signup"
-        android:padding="10dp"
-        android:text="@string/forgot_password2"
-        android:clickable="true"/>
+            <RadioButton
+                android:id="@+id/radioFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nữ"
+                android:textColor="#000000" />
+        </RadioGroup>
 
+        <!-- Nút Đăng ký -->
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="85dp"
+            android:layout_marginRight="85dp"
+            android:background="@drawable/custom_btn"
+            android:text="ĐĂNG KÝ"
+            android:textAllCaps="true"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:backgroundTint="@null" />
 
-</LinearLayout>
+        <!-- Liên kết đến màn hình Đăng nhập -->
+        <TextView
+            android:id="@+id/txtLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/custom_signup"
+            android:padding="10dp"
+            android:text="Đã có tài khoản? Đăng nhập"
+            android:clickable="true" />
+
+    </LinearLayout>
+</ScrollView>

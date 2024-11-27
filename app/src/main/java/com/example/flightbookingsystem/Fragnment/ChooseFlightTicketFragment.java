@@ -58,7 +58,7 @@ public class ChooseFlightTicketFragment extends Fragment {
         // Thêm sự kiện listener cho lựa chọn hạng vé
         radioGroupClasses.setOnCheckedChangeListener((group, checkedId) -> {
             RadioButton selectedClass = view.findViewById(checkedId);
-            if (selectedClass != null) {
+            if (selectedClass != null) {    
                 String className = selectedClass.getText().toString();
                 Toast.makeText(getActivity(), "You selected: " + className, Toast.LENGTH_SHORT).show();
 

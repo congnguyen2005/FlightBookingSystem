@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.flightbookingsystem.Fragnment.GoiYFragment;
+
 public class ViewFlightInformationActivity extends AppCompatActivity {
     private TextView tvLocation, tvAllFlights, tvFlightNumber, tvAirlineName, tvFlightDate, tvDepartureTime, tvArrivalTime,
             tvFlightDuration, tvFlightRoute, tvStops, tvStopInfo, tvTicketClass, tvSeatNumber, tvBaggageInfo,
@@ -44,7 +46,7 @@ public class ViewFlightInformationActivity extends AppCompatActivity {
         btnSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ViewFlightInformationActivity.this, FlightSuggestionsActivity.class);
+                Intent intent = new Intent(ViewFlightInformationActivity.this, GoiYFragment.class);
                 startActivity(intent);
                 finish();
             }

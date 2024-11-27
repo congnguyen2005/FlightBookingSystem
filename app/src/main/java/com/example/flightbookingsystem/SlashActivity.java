@@ -35,7 +35,6 @@ public class SlashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                // Sau 5 giây chuyển sang MainActivity
                 Intent intent = new Intent(SlashActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();

@@ -10,6 +10,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="flight_image">flight_image.jpg</string>
     <string name="remember_me"><u>Remember me</u></string>
+    <string name="welcome_text">WELCOME</string>
+    <string name="gif_content_description">Welcome animation</string>
     <!-- Danh sách các loại câu hỏi hỗ trợ -->
     <string-array name="question_categories">
         <item>Khiếu nại</item>
