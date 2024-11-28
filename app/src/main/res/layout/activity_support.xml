@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -53,20 +52,24 @@
         android:textColor="#000000"
         android:textStyle="bold" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_faq"
+    <TextView
+        android:id="@+id/tv_faq_list"
         android:layout_below="@id/tv_faq_title"
+        android:layout_margin="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
         android:background="#F0F0F0"
-        android:padding="8dp"
-        android:clipToPadding="false" />
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:lineSpacingExtra="4dp"
+        android:scrollbars="vertical"
+        android:overScrollMode="always" />
 
     <!-- Khu vực nhập câu hỏi hoặc phản hồi -->
     <EditText
         android:id="@+id/et_input_question"
-        android:layout_below="@id/recycler_faq"
+        android:layout_below="@id/tv_faq_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
