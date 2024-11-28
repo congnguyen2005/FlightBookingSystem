@@ -1,23 +1,35 @@
 package com.example.flightbookingsystem.model;
 
-public class Goi_y {
+import java.io.Serializable;
+
+public class Goi_y implements Serializable {
+    private String flightNumber;
     private String departure;
     private String destination;
-    private String departureDate;
     private String departureTime;
     private String arrivalTime;
-    private int price;
+    private String price;
 
-    public Goi_y(String departure, String destination, String departureDate, String departureTime, String arrivalTime, int price) {
+    public Goi_y() {
+    }
+
+    public Goi_y(String flightNumber, String departure, String destination, String departureTime, String arrivalTime, String price) {
+        this.flightNumber = flightNumber;
         this.departure = departure;
         this.destination = destination;
-        this.departureDate = departureDate;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
         this.price = price;
     }
 
-    // Getter và Setter
+    public String getFlightNumber() {
+        return flightNumber;
+    }
+
+    public void setFlightNumber(String flightNumber) {
+        this.flightNumber = flightNumber;
+    }
+
     public String getDeparture() {
         return departure;
     }
@@ -32,14 +44,6 @@ public class Goi_y {
 
     public void setDestination(String destination) {
         this.destination = destination;
-    }
-
-    public String getDepartureDate() {
-        return departureDate;
-    }
-
-    public void setDepartureDate(String departureDate) {
-        this.departureDate = departureDate;
     }
 
     public String getDepartureTime() {
@@ -58,11 +62,11 @@ public class Goi_y {
         this.arrivalTime = arrivalTime;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 }

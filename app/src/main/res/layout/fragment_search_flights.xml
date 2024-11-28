@@ -1,89 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Tiêu đề -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tìm kiếm chuyến bay"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginTop="16dp"
-        android:gravity="center"/>
-
     <!-- Sân bay khởi hành -->
-    <AutoCompleteTextView
+    <EditText
         android:id="@+id/etDeparture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Sân bay khởi hành"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/khung"
-        android:drawableStart="@drawable/ic_departure"
-        android:drawablePadding="10dp"
-        android:focusable="true"
-        android:clickable="true"/>
+        android:hint="Departure" />
 
     <!-- Sân bay đến -->
-    <AutoCompleteTextView
+    <EditText
         android:id="@+id/etDestination"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Sân bay đến"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/khung"
-        android:drawableStart="@drawable/ic_arrival"
-        android:drawablePadding="10dp"
-        android:focusable="true"
-        android:clickable="true"/>
+        android:hint="Destination" />
 
-    <!-- Ngày đi -->
-    <EditText
-        android:id="@+id/etDepartureDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Ngày đi"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/khung"
-        android:drawableStart="@drawable/icons8_calendar_24"
-        android:drawablePadding="10dp"
-        android:focusable="false"
-        android:clickable="true"/>
-
-    <!-- Ngày về -->
-    <EditText
-        android:id="@+id/etReturnDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Ngày về (không bắt buộc)"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/khung"
-        android:drawableStart="@drawable/icons8_calendar_24"
-        android:drawablePadding="10dp"
-        android:focusable="false"
-        android:clickable="true"/>
-
-    <!-- Số lượng hành khách -->
-    <EditText
-        android:id="@+id/etPassengers"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Số lượng hành khách"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/khung"
-        android:drawableStart="@drawable/user"
-        android:drawablePadding="10dp"/>
 
     <!-- Nút tìm kiếm -->
     <Button
         android:id="@+id/btnSearch"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tìm kiếm"
-        android:layout_marginTop="16dp"
-        android:background="@color/black"
-        android:textColor="@android:color/white"/>
+        android:text="Search" />
+
+    <!-- RecyclerView để hiển thị kết quả tìm kiếm -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 </LinearLayout>
