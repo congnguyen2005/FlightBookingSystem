@@ -1,66 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp"
-    android:layout_marginBottom="10dp"
-    android:background="?android:attr/selectableItemBackground">
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/tvFlightNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Flight Number"
-        android:textSize="16sp"
-        android:textStyle="bold"/>
+        android:text="Flight Number: "
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
 
     <TextView
         android:id="@+id/tvDeparture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Departure: City"
-        android:textSize="14sp"
-        android:layout_marginTop="5dp"/>
+        android:text="Departure: "
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
 
     <TextView
         android:id="@+id/tvDestination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Destination: City"
-        android:textSize="14sp"
-        android:layout_marginTop="5dp"/>
+        android:text="Destination: "
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
 
     <TextView
         android:id="@+id/tvDepartureTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Departure Time: 2024-12-25 10:00"
-        android:textSize="14sp"
-        android:layout_marginTop="5dp"/>
+        android:text="Departure Time: "
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
 
     <TextView
         android:id="@+id/tvArrivalTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Arrival Time: 2024-12-25 12:00"
-        android:textSize="14sp"
-        android:layout_marginTop="5dp"/>
+        android:text="Arrival Time: "
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
 
     <TextView
         android:id="@+id/tvPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Price: $200"
-        android:textSize="14sp"
+        android:text="Price: "
+        android:textSize="16sp"
         android:textColor="@android:color/holo_green_dark"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginBottom="16dp"/>
 
-    <!-- Button to select flight and book -->
     <Button
-        android:id="@+id/btnSelectFlight"
+        android:id="@+id/btnBookTicket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chọn vé"
-        android:layout_marginTop="10dp"/>
+        android:text="Book Ticket"
+        android:layout_gravity="center"/>
 </LinearLayout>

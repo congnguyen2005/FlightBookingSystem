@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.flightbookingsystem.Adapter.GoiYMainAdapter;
+import com.example.flightbookingsystem.Fragnment.DatVeFragment;
 import com.example.flightbookingsystem.model.GoiYMain;
 
 import java.util.ArrayList;
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         // Thêm sự kiện cho các nút
         btnBookFlight.setOnClickListener(view -> {
             // Chuyển sang màn hình đặt vé
-            Intent intent = new Intent(MainActivity.this, Datve.class);
+            Intent intent = new Intent(MainActivity.this, DatVeFragment.class);
             startActivity(intent);
         });
 

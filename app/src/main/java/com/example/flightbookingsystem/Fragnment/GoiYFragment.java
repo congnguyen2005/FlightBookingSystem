@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,51 +23,65 @@ import java.util.List;
 
 public class GoiYFragment extends Fragment {
 
-    private RecyclerView rvFlightSuggestions;
-    private TextView tvSearchInfo;
-    private GoiYAdapter goiYAdapter;
-    private List<Goi_y> flightSuggestions;
+    private RecyclerView recyclerView;
+    private GoiYAdapter adapter;
+    private List<Goi_y> flightList;
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_goi_y, container, false);
 
-        rvFlightSuggestions = view.findViewById(R.id.rvFlightSuggestions);
-        tvSearchInfo = view.findViewById(R.id.tvSearchInfo);
-
-        rvFlightSuggestions.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        Bundle bundle = getArguments();
-        if (bundle != null) {
-            String departure = bundle.getString("departure");
-            String destination = bundle.getString("destination");
-            String departureDate = bundle.getString("departureDate");
-
-            String searchInfo = "Khởi hành: " + departure + "\n" +
-                    "Điểm đến: " + destination + "\n" +
-                    "Ngày đi: " + departureDate;
-            tvSearchInfo.setText(searchInfo);
-
-            flightSuggestions = getFlightSuggestions(departure, destination);
-            goiYAdapter = new GoiYAdapter(flightSuggestions);
-            rvFlightSuggestions.setAdapter(goiYAdapter);
-        }
-
-        return view;
+     public GoiYFragment() {
+        // Required empty public constructor
     }
 
-    private List<Goi_y> getFlightSuggestions(String departure, String destination) {
-        List<Goi_y> allFlights = new ArrayList<>();
-        allFlights.add(new Goi_y("Hà Nội", "Hồ Chí Minh", "2024-11-26", "10:00", "12:00", 1500000));
-        allFlights.add(new Goi_y("Đà Nẵng", "Hà Nội", "2024-11-26", "14:00", "16:00", 1200000));
+    public static GoiYFragment newInstance(String param1, String param2) {
+        GoiYFragment fragment = new GoiYFragment();
+        Bundle args = new Bundle();
+        args.putString("ARG_PARAM1", param1);
+        args.putString("ARG_PARAM2", param2);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
-        List<Goi_y> suggestions = new ArrayList<>();
-        for (Goi_y flight : allFlights) {
-            if (flight.getDeparture().equals(departure) && flight.getDestination().equals(destination)) {
-                suggestions.add(flight);
-            }
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View rootView = inflater.inflate(R.layout.fragment_goi_y, container, false);
+
+        recyclerView = rootView.findViewById(R.id.recyclerView);
+
+        // Setup RecyclerView
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        flightList = new ArrayList<>();
+        adapter = new GoiYAdapter(getContext(), flightList);
+        recyclerView.setAdapter(adapter);
+
+        // Get suggestions for flights
+        getSuggestedFlights();
+
+        return rootView;
+    }
+
+    private void getSuggestedFlights() {
+        List<Goi_y> flights = loadSuggestedFlights();
+
+        if (flights.isEmpty()) {
+            Toast.makeText(getContext(), "No suggested flights.", Toast.LENGTH_SHORT).show();
+        } else {
+            flightList.clear();
+            flightList.addAll(flights);
+            adapter.notifyDataSetChanged();
         }
-        return suggestions;
+    }
+
+    // Dummy function to simulate flight suggestions
+    private List<Goi_y> loadSuggestedFlights() {
+        List<Goi_y> flights = new ArrayList<>();
+
+        // Sample flight suggestions for demonstration purposes
+        for (int i = 0; i < 10; i++) {
+            flights.add(new Goi_y("VietNamearline" + (i + 1), "New York", "Los Angeles", "2024-12-25 08:00", "2024-12-25 10:00", "$250"));
+        }
+
+        return flights;
     }
 }

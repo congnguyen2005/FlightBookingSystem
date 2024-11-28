@@ -25,14 +25,13 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String CREATE_TABLE_FLIGHTS = "CREATE TABLE Flights ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
             + "flight_number TEXT NOT NULL, "
-            + "departure VARCHAR(255) NOT NULL, "
-            + "destination VARCHAR(255) NOT NULL, "
+            + "departure TEXT NOT NULL, "
+            + "destination TEXT NOT NULL, "
             + "departure_time DATETIME NOT NULL, "
             + "arrival_time DATETIME NOT NULL, "
             + "price DECIMAL(10, 2) NOT NULL, "
             + "available_seats INTEGER NOT NULL"
             + ");";
-
     // Bảng vé
     private static final String CREATE_TABLE_TICKETS = "CREATE TABLE Tickets ("
             + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
