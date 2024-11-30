@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/backgroud"
+    android:padding="16dp">
+
+    <!-- Tiêu đề -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ĐẶT VÉ"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#FFFFFF" />
+
+    <!-- Ô nhập điểm khởi hành -->
+    <!-- Ô nhập điểm khởi hành -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:padding="12dp"
+        android:orientation="vertical"
+        android:background="@drawable/rounded_background">
+
+        <EditText
+            android:id="@+id/start_point"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="✈️ Nhập điểm khởi hành"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:inputType="text" />
+    </LinearLayout>
+
+    <!-- Ô nhập điểm đến -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:padding="12dp"
+        android:orientation="vertical"
+        android:background="@drawable/rounded_background">
+
+        <EditText
+            android:id="@+id/end_point"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="✈️ Nhập điểm đến"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:inputType="text" />
+    </LinearLayout>
+
+
+
+
+    <!-- Danh sách các địa điểm -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:padding="12dp"
+        android:orientation="vertical"
+        android:background="@drawable/rounded_background">
+
+        <!-- Tiêu đề danh sách -->
+        <TextView
+            android:id="@+id/city_code_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thành Phố / Mã Sân Bay"
+            android:textColor="#000000"
+            android:textStyle="italic"
+            android:layout_marginBottom="8dp"
+            android:textSize="14sp" />
+
+        <!-- Việt Nam danh sách -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VIỆT NAM (19)"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hà Nội\t\tHAN"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buôn Ma Thuột\t\tBMT"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cần Thơ\t\tVCA"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <!-- Hàn Quốc danh sách -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HÀN QUỐC (3)"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Busan\t\tPUS"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_fill_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Điền thông tin"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_btn"/>
+
+    <!-- Nút đặt vé -->
+    <Button
+        android:id="@+id/book_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/custom_btn"
+        android:text="ĐẶT VÉ NGAY"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:padding="12dp" />
+</LinearLayout>

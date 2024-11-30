@@ -25,7 +25,7 @@ public class SupportActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_support);
 
         // Ánh xạ các thành phần giao diện
         spinnerQuestionCategory = findViewById(R.id.spinner_question_category);

@@ -8,131 +8,81 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.flightbookingsystem.Adapter.GoiYAdapter;
+import com.example.flightbookingsystem.Adapter.GoiYMainAdapter;
 import com.example.flightbookingsystem.R;
-import com.example.flightbookingsystem.model.Goi_y;
+import com.example.flightbookingsystem.model.GoiYMain;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-import java.util.Random;
 
 public class FragmentSearchFlights extends Fragment {
 
     private EditText etDeparture, etDestination;
+    private Button btnSearch;
     private RecyclerView recyclerView;
-    private GoiYAdapter adapter;
-    private List<Goi_y> flightList;
+    private GoiYMainAdapter goiYMainAdapter;
+    private List<GoiYMain> flightSuggestions;
 
-    public FragmentSearchFlights() {
-        // Constructor trống bắt buộc
-    }
-
-    public static FragmentSearchFlights newInstance(String param1, String param2) {
-        FragmentSearchFlights fragment = new FragmentSearchFlights();
-        Bundle args = new Bundle();
-        args.putString("ARG_PARAM1", param1);
-        args.putString("ARG_PARAM2", param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate layout cho Fragment
-        View rootView = inflater.inflate(R.layout.fragment_search_flights, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_search_flights, container, false);
 
-        etDeparture = rootView.findViewById(R.id.etDeparture);
-        etDestination = rootView.findViewById(R.id.etDestination);
-        recyclerView = rootView.findViewById(R.id.recyclerView);
+        // Khởi tạo các thành phần giao diện
+        etDeparture = view.findViewById(R.id.etDeparture);
+        etDestination = view.findViewById(R.id.etDestination);
+        btnSearch = view.findViewById(R.id.btnSearch);
+        recyclerView = view.findViewById(R.id.recyclerView);
 
-        // Cấu hình RecyclerView
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-        flightList = new ArrayList<>();
-        adapter = new GoiYAdapter(requireContext(), flightList);
-        recyclerView.setAdapter(adapter);
+        // Cài đặt RecyclerView
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        flightSuggestions = new ArrayList<>();
+        goiYMainAdapter = new GoiYMainAdapter(flightSuggestions);
+        recyclerView.setAdapter(goiYMainAdapter);
 
         // Xử lý sự kiện nút Tìm kiếm
-        Button btnSearch = rootView.findViewById(R.id.btnSearch);
-        btnSearch.setOnClickListener(v -> onSearchClick());
+        btnSearch.setOnClickListener(v -> {
+            if (validateInputs()) {
+                searchFlights();
+            }
+        });
 
-        return rootView;
+        return view;
     }
 
-    private void onSearchClick() {
+    private boolean validateInputs() {
         String departure = etDeparture.getText().toString().trim();
         String destination = etDestination.getText().toString().trim();
 
         if (departure.isEmpty() || destination.isEmpty()) {
-            Toast.makeText(requireContext(), "Vui lòng nhập điểm đi và điểm đến.", Toast.LENGTH_SHORT).show();
-            return;
+            Toast.makeText(getActivity(), "Vui lòng nhập sân bay khởi hành và đến!", Toast.LENGTH_SHORT).show();
+            return false;
         }
 
-        // Mô phỏng tìm kiếm chuyến bay
-        List<Goi_y> flights = searchFlights(departure, destination);
-
-        if (flights.isEmpty()) {
-            Toast.makeText(requireContext(), "Không tìm thấy chuyến bay.", Toast.LENGTH_SHORT).show();
-        } else {
-            flightList.clear();
-            flightList.addAll(flights);
-            adapter.notifyDataSetChanged();
+        if (departure.equals(destination)) {
+            Toast.makeText(getActivity(), "Sân bay khởi hành và đến không được trùng nhau!", Toast.LENGTH_SHORT).show();
+            return false;
         }
+
+        return true;
     }
 
-    // Hàm mô phỏng tìm kiếm chuyến bay
-    private List<Goi_y> searchFlights(String departure, String destination) {
-        List<Goi_y> flights = new ArrayList<>();
+    private void searchFlights() {
+        // Giả lập dữ liệu gợi ý chuyến bay
+        flightSuggestions.clear();
+        flightSuggestions.add(new GoiYMain("VN123", "08:00 - 11:00", "1.200.000 VND"));
+        flightSuggestions.add(new GoiYMain("VN234", "14:00 - 17:00", "1.500.000 VND"));
+        flightSuggestions.add(new GoiYMain("VN345", "18:00 - 21:00", "1.300.000 VND"));
 
-        // Tạo dữ liệu mẫu
-        for (int i = 0; i < 10; i++) {
-            String departureTime = generateRandomDate();
-            String arrivalTime = generateArrivalTime(departureTime);
-
-            flights.add(new Goi_y("Vietnam Airlines " + (i + 1), departure, destination, departureTime, arrivalTime, "$200"));
-        }
-
-        return flights;
-    }
-
-    // Hàm tạo ngày ngẫu nhiên trong 30 ngày tới
-    private String generateRandomDate() {
-        Random random = new Random();
-        Calendar calendar = Calendar.getInstance();
-
-        // Thêm số ngày ngẫu nhiên
-        int daysToAdd = random.nextInt(30);
-        calendar.add(Calendar.DAY_OF_YEAR, daysToAdd);
-
-        int year = calendar.get(Calendar.YEAR);
-        int month = calendar.get(Calendar.MONTH) + 1;
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-        int hour = random.nextInt(12) + 6; // Giờ từ 6 giờ sáng đến 6 giờ chiều
-        int minute = random.nextInt(60);
-
-        return String.format("%04d-%02d-%02d %02d:%02d", year, month, day, hour, minute);
-    }
-
-    // Hàm tạo thời gian đến (cộng thêm 2 giờ)
-    private String generateArrivalTime(String departureTime) {
-        String[] parts = departureTime.split(" ");
-        String datePart = parts[0];
-        String timePart = parts[1];
-
-        String[] timeParts = timePart.split(":");
-        int hour = Integer.parseInt(timeParts[0]);
-        int minute = Integer.parseInt(timeParts[1]);
-
-        hour += 2;
-        if (hour >= 24) {
-            hour -= 24;
-        }
-
-        return datePart + " " + String.format("%02d:%02d", hour, minute);
+        // Cập nhật dữ liệu cho RecyclerView
+        goiYMainAdapter.notifyDataSetChanged();
+        Toast.makeText(getActivity(), "Kết quả tìm kiếm đã được hiển thị.", Toast.LENGTH_SHORT).show();
     }
 }
